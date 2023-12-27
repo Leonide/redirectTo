@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Deep Link Redirect</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        text-align: center;
+        margin-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Deep Link Redirect</h1>
+    <p>Redirecting to deep link...</p>
+    <script>
+      // Get the redirect parameter from the URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const redirectUrl = urlParams.get('redirect');
+      
+      // If a redirect parameter was found, redirect to the deep link
+      if (redirectUrl) {
+        window.location.href = redirectUrl;
+      } else {
+        // If no redirect parameter was found, display an error message
+        const errorMessage = document.createElement('p');
+        errorMessage.textContent = 'No deep link found in URL parameter.';
+        document.body.appendChild(errorMessage);
+      }
+    </script>
+  </body>
+</html>
